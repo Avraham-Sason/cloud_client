@@ -4,13 +4,15 @@ import axios from 'axios'
 const Download = ({fileName}) => {
     const [fileUrl, setFileUrl] = useState(null);
     const clickBtu = (fileName)=>{
-        axios.get(`http://localhost:8000/files/download/?dir=root/images&fileName=${fileName}`,{
+        axios.get(`http://localhost:8000/files/download/?dir=root/images/${fileName}`,{
             responseType:'blob',
         })
         .then(res=>{
-            let blod = res.data
-            const url = window.URL.createObjectURL(new Blob([blod]))
-            setFileUrl(url)
+            console.log(res.data);
+            let blob = res.data
+            const url = window.URL.createObjectURL(new Blob([blob]))
+            const display = URL.createObjectURL(blob)
+            setFileUrl(display)
             downloadFile(fileName,url)
             
         })
@@ -28,7 +30,7 @@ const Download = ({fileName}) => {
     return (
         <>
             <button onClick={()=>clickBtu(fileName)}>download</button>
-            {/* {fileUrl&&<img src={fileUrl} width="500" height="600" />} */}
+            {fileUrl&&<img src={fileUrl} width="500" height="600" />}
         </>
     );
 }

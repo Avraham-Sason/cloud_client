@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useContext, useState } from "react";
 import { DataContext } from '../../context/index';
 import apiCalls from '../../functions/apiCalls';
-import { Buffer } from 'buffer';
+// import { Buffer } from 'buffer';
 import axios from 'axios';
 
 
