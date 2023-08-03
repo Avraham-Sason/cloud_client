@@ -21,8 +21,8 @@ async function apicalls(method, url, data) {
 }
 
 
-const get = (url) => {
-    return apicalls("get", url)
+const get = (url, obj) => {
+    return apicalls("get", url, obj)
 }
 
 const post = (url, data) => {
