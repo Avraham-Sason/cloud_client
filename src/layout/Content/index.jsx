@@ -1,7 +1,10 @@
 import React from 'react'
+import GetFile from '../../components/GetFile'
 
 export default function Content() {
     return (
-        <div>Content</div>
+        <div>Content
+            <GetFile />
+        </div>
     )
 }

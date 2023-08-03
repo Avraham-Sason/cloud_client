@@ -1,9 +1,8 @@
 import React from 'react'
 import { useState, useEffect, useContext } from 'react'
 import { DataContext } from '../../context'
-import axios from 'axios'
 import apiCalls from '../../functions/apiCalls'
-import Context from '../../context'
+
 
 export default function Uploud() {
 
