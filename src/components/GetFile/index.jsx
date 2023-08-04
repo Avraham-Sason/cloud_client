@@ -2,49 +2,84 @@ import React from 'react'
 import { useEffect, useContext, useState } from "react";
 import { DataContext } from '../../context/index';
 import apiCalls from '../../functions/apiCalls';
-import { Buffer } from 'buffer';
 import axios from 'axios';
+import { Buffer } from 'buffer'
+import styles from './style.module.css';
+import Down from '../Down';
+import DocViewer from 'react-doc-viewer';
+
 
 
 export default function GetFile(props) {// props --or-- parahms
+  let { setPopup } = useContext(DataContext)
 
-    let { popup, setPopup } = useContext(DataContext)
-    const [file, setFile] = useState(null)
+  let [upfile, setUpfile] = useState(undefined)
+  let [mimeType, setMimeType] = useState(undefined)
 
+  useEffect(() => {
+    mimeType && upfile && setPopup(fileDisplay(upfile, mimeType));
+  }, [upfile]);
 
-    // useEffect(getfile(
-    //     'files/?id=64c912408b5a1420b61a7a0f&dir=images/1691032364332479497.jpg'
-    // ), [])
-
-    async function getfile(url) {
-        let myFile
-        try {
-            myFile = await axios.get(url,
-                {
-                    responseType: 'arraybuffer',
-                    headers: { 'Content-Type': 'application/octet-stream' }
-                })
-            // myFile = await apiCalls.get(url, { responseType: 'arraybuffer' })
-            console.log(myFile);
-        } catch (error) {
-            console.log(error);
-        }
-        const buffer = Buffer.from(myFile)
-        const base64 = buffer.toString('base64');
-        const fileUrl = `data:${myFile.headers['content-type']};base64,${base64}`;
-        setFile(fileUrl)
-        setPopup(<img src={file} />)
-
-        console.log("0", buffer, "1", base64, "2", fileUrl, "3", file);
-        //return file;
+  async function getfileFun(url) {
+    try {
+      await axios
+        .get(url, { responseType: 'arraybuffer' })
+        .then((response) => {
+          let contentType = response.headers['content-type'];
+          let blob = new Blob([response.data], { type: contentType });
+          let fileUrl = URL.createObjectURL(blob);
+          setUpfile(fileUrl);
+          setMimeType(contentType)
+          console.log(response, contentType, fileUrl);
+        })
+    } catch (error) {
+      console.log(error);
     }
 
-    return (
-        <div>
-            <button onClick={() => getfile('http://localhost:8000/files/?id=64c912408b5a1420b61a7a0f&dir=images/1691032364332479497.jpg')} >
-                show file
-            </button>
-            {popup}
-        </div>
-    )
+  }
+
+  function fileDisplay(fileUrl, mimeType) {
+    switch (mimeType) {
+
+      case 'image/jpeg':
+      case 'image/png':
+        return <a href={fileUrl} ><img className={styles.pop} src={fileUrl} /></a>;
+
+      case 'audio/mpeg':
+      case 'audio/wav':
+        return <video className={styles.pop} src={fileUrl} controls />;
+
+      case 'video/mp4':
+        return <video className={styles.pop} src={fileUrl} controls />;
+
+      case 'application/pdf':
+        return <a href={fileUrl} > <embed className={styles.pop} src={fileUrl} /></a>;
+
+      case "docx":
+      case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+        return <textArea className={styles.pop} value={fileUrl} />
+
+      case 'text/plain':
+      case 'text/plain; charset=utf-8':
+        return <textArea className={styles.pop} value={fileUrl} />;
+
+      case 'application/json':
+        return <code src={fileUrl} className={styles.pop} >{JSON.stringify(fileUrl)}</code>
+
+      default:
+        return <a download={fileUrl} href={fileUrl}>Click to open file</a>;
+    }
+
+  }
+
+  return (
+    <div>
+      {/* <button onClick={() => getfileFun('files/?id=64c912408b5a1420b61a7a0f&dir=notes/1691142986293××¤×ª× ×¤×××××§×.docx')} > */}
+      <button onClick={() => getfileFun('files/?id=64c912408b5a1420b61a7a0f&dir=images/a.text')} >
+        show file
+      </button>
+      {upfile && <Down fileUrl={upfile} type={mimeType} />}
+    </div >
+  )
 }
+
