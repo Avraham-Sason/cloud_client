@@ -15,7 +15,7 @@ export default function Uploud() {
         const fileData = new FormData()
         fileData.append('upfile', file)
         try {
-            const result = await apiCalls.post(`http://localhost:8000/files/upload/?id=${context.user._id}&dir=${"notes"}`, fileData)
+            const result = await apiCalls.post(`files/upload/?id=${context.user._id}&dir=${"notes"}`, fileData)
             console.log(result);
         } catch (error) {
             console.log(error);
