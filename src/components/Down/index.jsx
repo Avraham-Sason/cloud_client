@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Down(props) {// requires -fileUrl-
+export default function Down(props) {// requires-fileUrl- by props/context ?
 
     const downloadFile = (e) => {
         e.target.download = e.target.name

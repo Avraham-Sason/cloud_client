@@ -12,7 +12,7 @@ async function apicalls(method, url, data) {
                 "Authorization": "Bearer " + localStorage.token
             }
         })
-        return result.data
+        return result
 
     } catch (error) {
         console.log(error);

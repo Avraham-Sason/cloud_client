@@ -11,10 +11,11 @@ import DocViewer from 'react-doc-viewer';
 
 
 export default function GetFile(props) {// props --or-- parahms
-  let { setPopup } = useContext(DataContext)
+  let { setPopup, user, activeUrl } = useContext(DataContext)
 
   let [upfile, setUpfile] = useState(undefined)
   let [mimeType, setMimeType] = useState(undefined)
+  let dir = activeUrl.join("")
 
   useEffect(() => {
     mimeType && upfile && setPopup(fileDisplay(upfile, mimeType));
@@ -35,7 +36,6 @@ export default function GetFile(props) {// props --or-- parahms
     } catch (error) {
       console.log(error);
     }
-
   }
 
   function fileDisplay(fileUrl, mimeType) {
@@ -69,13 +69,12 @@ export default function GetFile(props) {// props --or-- parahms
       default:
         return <a download={fileUrl} href={fileUrl}>Click to open file</a>;
     }
-
   }
 
   return (
-    <div>
-      {/* <button onClick={() => getfileFun('files/?id=64c912408b5a1420b61a7a0f&dir=notes/1691142986293××¤×ª× ×¤×××××§×.docx')} > */}
-      <button onClick={() => getfileFun('files/?id=64c912408b5a1420b61a7a0f&dir=images/a.text')} >
+    <div>//
+      <button onClick={() => getfileFun(`files/one/?id=${user._id}&dir=${dir}/1691032337930479497.jpg`)}>
+        {/* <button onClick={() => getfileFun('files/one/?id=64c912408b5a1420b61a7a0f&dir=images/a.text')} > */}
         show file
       </button>
       {upfile && <Down fileUrl={upfile} type={mimeType} />}
