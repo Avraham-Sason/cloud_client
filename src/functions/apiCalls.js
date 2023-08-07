@@ -1,5 +1,5 @@
 import axios from "axios"
-axios.defaults.baseURL = "http://localhost:8000"
+axios.defaults.baseURL = "http://localhost:8000/"
 
 
 async function apicalls(method, url, data) {
@@ -12,7 +12,7 @@ async function apicalls(method, url, data) {
                 "Authorization": "Bearer " + localStorage.token
             }
         })
-        return result.data
+        return result
 
     } catch (error) {
         console.log(error);
@@ -21,8 +21,8 @@ async function apicalls(method, url, data) {
 }
 
 
-const get = (url) => {
-    return apicalls("get", url)
+const get = (url, obj) => {
+    return apicalls("get", url, obj)
 }
 
 const post = (url, data) => {

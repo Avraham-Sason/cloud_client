@@ -19,9 +19,9 @@ export default function Popup() {
                     <div className={styles.popheader}>
                         <div className={styles.x} onClick={(e) => exit(e)}>❌</div>
                     </div>
-
+                    
                     {context.popup}
-
+                    
                 </div>
 
             </div>
