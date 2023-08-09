@@ -8,8 +8,7 @@ import Delete from '../../components/Delete'
 export default function Header() {
     return (
         <div className={styles.header}>
-
-            <div className={styles.title}>
+            <div className={`center ${styles.title}`}>
                 <div>☁️SagiDrive</div>
             </div>
 
@@ -22,7 +21,6 @@ export default function Header() {
 
                 <Undu />
             </div>
-
         </div>
     )
 }
