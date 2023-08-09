@@ -24,8 +24,8 @@ export default function MainRouter() {
     // }
 
     return (
-        <div>
+        <>
             {user ? <MainLayout /> : <Login />}
-        </div>
+        </>
     )
 }
