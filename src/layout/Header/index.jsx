@@ -7,19 +7,14 @@ import Undu from '../../components/Undu'
 export default function Header() {
     return (
         <div className={styles.header}>
-
-            <div className={styles.title}>
+            <div className={`center ${styles.title}`}>
                 <div>☁️SagiDrive</div>
             </div>
-
-            <div className={styles.nav}>
-                <div className={styles.cloudnav}>
-                    <Uploud />
-                    <CreatFolder />
-                </div>
-
+            <nav className={`center ${styles.nav}`}>
+                <Uploud />
+                <CreatFolder />
                 <Undu />
-            </div>
+            </nav>
 
         </div>
     )

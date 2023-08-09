@@ -12,6 +12,7 @@ export default function Context({ children }) {
 
     const [popup, setPopup] = useState(null)
     const [user, setUser] = useState(fakeUser)
+    // const [user, setUser] = useState(false)
 
     return (
         <>
