@@ -3,7 +3,6 @@ import { useEffect, useContext, useState } from "react";
 import { DataContext } from '../../context/index';
 import apiCalls from '../../functions/apiCalls';
 import axios from 'axios';
-import { Buffer } from 'buffer'
 import styles from './style.module.css';
 import Down from '../Down';
 import DocViewer from 'react-doc-viewer';
