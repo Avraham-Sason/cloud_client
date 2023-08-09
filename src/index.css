@@ -19,3 +19,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+.btu{
+  border: none;
+  border-radius: 20px;
+  width: 100px;
+  height: 60px;
+}

@@ -27,7 +27,7 @@ const Download = ({ fileName }) => {
     };
     return (
         <>
-            <button onClick={() => clickBtu(fileName)}>download</button>
+            <button className={`btu`} onClick={() => clickBtu(fileName)}>download</button>
             {/* {fileUrl&&<img src={fileUrl} width="500" height="600" />} */}
         </>
     );
