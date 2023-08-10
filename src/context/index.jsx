@@ -13,10 +13,13 @@ export default function Context({ children }) {
     const [user, setUser] = useState(fakeUser)
     const [activeFolder, setActiveFolder] = useState([])
     const [activeUrl, setActiveUrl] = useState([user._id])
+    const [navItem, setNavItem] = useState([])
 
     return (
         <>
-            <DataContext.Provider value={{ user, setUser, popup, setPopup ,activeFolder, setActiveFolder,activeUrl, setActiveUrl}} >
+            <DataContext.Provider value={{
+                 user, setUser, popup, setPopup ,activeFolder, setActiveFolder,activeUrl, setActiveUrl,navItem, setNavItem
+                 }} >
                 {children}
                 {popup && <Popup />}
             </DataContext.Provider>

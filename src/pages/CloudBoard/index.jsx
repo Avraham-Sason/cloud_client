@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import { DataContext } from '../../context'
 import apiCalls from '../../functions/apiCalls'
+import NavItem from '../../components/NavItem'
+import Delete from '../../components/Delete'
+import Down from '../../components/Down'
 //let nowUrl
 function CloudBoard() {
     const context = useContext(DataContext)
@@ -25,13 +28,24 @@ function CloudBoard() {
             return newdir
         })
     }
+    let navItemArray = [<Delete />, <Down />]
+    function setnavitemfun(e) {
+        const item = e.target.name
+        context.setNavItem(navItemArray)//set in array of components that will be rendered
+    }
 
     return (
         <div>
             {context.activeFolder.length > 0 ? context.activeFolder.map((item, index) => {
-                return <div key={index}> <button name={item} onClick={(e) => buttenopenfolder(e)}> {item}</button></div>
+                return <ul key={index}>
+                    <li name={item} onClick={(e) => buttenopenfolder(e)}> {item}</li>
+                    <button name={item} onClick={(e) => setnavitemfun(e) }>⁝</button>
+                    {context.navItem && <NavItem />}
+                </ul>
             }) : null}
+
         </div>
+
     )
 }
 
