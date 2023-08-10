@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect, useContext } from 'react'
 import { DataContext } from '../../context'
 import apiCalls from '../../functions/apiCalls'
+import styles from './style.module.css'
 
 
 export default function Uploud() {
@@ -25,11 +26,11 @@ export default function Uploud() {
     }
 
     return (
-        <div>
-            <form onSubmit={onsubmit}>
+        <>
+            <form className={`${styles.form}`} onSubmit={onsubmit}>
                 <input type='file' required={true} onChange={e => setFile(e.target.files[0])} />
-                <button type='submit'>⏫</button>
+                <button className={`haedBtu`} type='submit'>⏫</button>
             </form>
-        </div>
+        </>
     )
 }

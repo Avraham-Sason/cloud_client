@@ -22,6 +22,12 @@ body {
 .btu{
   border: none;
   border-radius: 20px;
-  width: 100px;
-  height: 60px;
+  padding: 5px;
+  padding: 5px;
+}
+.haedBtu{
+  height: 90%;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;  
 }

@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import { DataContext } from '../../context'
 import apiCalls from '../../functions/apiCalls'
+import styles from './style.module.css'
+import {BsFolder2,BsFileEarmark} from "react-icons/bs"
+
 //let nowUrl
 function CloudBoard() {
     const context = useContext(DataContext)
@@ -18,18 +21,18 @@ function CloudBoard() {
         }
     }
 
-    const buttenopenfolder = async (e) => {
+    const buttenOpenFolder = async (e) => {
         let foldername = "/" + e.target.name
         context.setActiveUrl(prev => {
             const newdir = [...prev, foldername]
-            return newdir
+            return e.target.name.includes(".")?prev : newdir
         })
     }
 
     return (
-        <div>
+        <div className={`center ${styles.bord}`} >
             {context.activeFolder.length > 0 ? context.activeFolder.map((item, index) => {
-                return <div key={index}> <button name={item} onClick={(e) => buttenopenfolder(e)}> {item}</button></div>
+                return <div key={index}> <button className={`btu ${styles.card}`} name={item} onClick={(e) => buttenOpenFolder(e)}>{item.includes(".")?<BsFileEarmark/>:<BsFolder2/>} {item}</button></div>
             }) : null}
         </div>
     )
