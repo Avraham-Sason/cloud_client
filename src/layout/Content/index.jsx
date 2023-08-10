@@ -4,7 +4,7 @@ import CloudBoard from '../../pages/CloudBoard'
 
 export default function Content() {
     return (
-        <div>Content
+        <div>
             <GetFile />
             <CloudBoard/>
         </div>
