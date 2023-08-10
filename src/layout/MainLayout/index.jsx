@@ -10,7 +10,7 @@ export default function MainLayout() {
             <Header />
             <Content />
             <div>
-                banana
+                
             </div>
         </>
     )
