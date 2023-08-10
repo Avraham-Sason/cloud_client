@@ -1,6 +1,5 @@
 import axios from "axios"
 axios.defaults.baseURL = "http://localhost:8000/"
-import jwt from 'jsonwebtoken';
 
 
 async function apicalls(method, url, data) {
