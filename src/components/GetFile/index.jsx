@@ -76,7 +76,7 @@ export default function GetFile(props) {// props --or-- parahms
         {/* <button onClick={() => getfileFun('files/one/?id=64c912408b5a1420b61a7a0f&dir=images/a.text')} > */}
         show file
       </button>
-      {upfile && <Down fileUrl={upfile} type={mimeType} />}
+      {/* {upfile && <Down fileUrl={upfile} type={mimeType} />} */}
     </div >
   )
 }

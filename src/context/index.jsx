@@ -13,7 +13,7 @@ export default function Context({ children }) {
     const [user, setUser] = useState(fakeUser)
     const [activeFolder, setActiveFolder] = useState([])
     const [activeUrl, setActiveUrl] = useState([user._id])
-    const [navItem, setNavItem] = useState([])
+    const [navItem, setNavItem] = useState({name:"",array:[]})
 
     return (
         <>

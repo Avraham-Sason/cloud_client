@@ -28,9 +28,14 @@ function CloudBoard() {
             return newdir
         })
     }
-    let navItemArray = [<Delete />, <Down />]
+    let navItemArray = {}
     function setnavitemfun(e) {
-        const item = e.target.name
+
+        navItemArray =
+        {
+            name: e.target.name,
+            array: [<Delete />, <Down />]
+        }
         context.setNavItem(navItemArray)//set in array of components that will be rendered
     }
 
@@ -39,8 +44,9 @@ function CloudBoard() {
             {context.activeFolder.length > 0 ? context.activeFolder.map((item, index) => {
                 return <ul key={index}>
                     <li name={item} onClick={(e) => buttenopenfolder(e)}> {item}</li>
-                    <button name={item} onClick={(e) => setnavitemfun(e) }>⁝</button>
-                    {context.navItem && <NavItem />}
+                    <button name={item} onClick={(e) => setnavitemfun(e)}>⁝</button>
+                    {/* {context.navItem.name=={item} && <NavItem />} */}
+                    {<NavItem />}
                 </ul>
             }) : null}
 

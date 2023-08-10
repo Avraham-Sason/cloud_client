@@ -3,13 +3,13 @@ import { DataContext } from '../../context'
 
 
 export default function navItem() {
-    const context=useContext(DataContext)//={components to render}
-
+  const context = useContext(DataContext)//={components to render}
+console.log(context.navItem);
   return (
     <ul>
-        {(context.navItem.length)>0&&context.navItem.map((navItem ,i)=>{
-        <li key={navItem.i}>{navItem}</li>
-        })}
+      {(context.navItem.array.length) > 0 && context.navItem.array.map((val, i) => {
+        return <li key={i}>{val}</li>
+      })}
     </ul>
   )
 }

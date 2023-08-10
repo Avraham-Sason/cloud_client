@@ -15,7 +15,6 @@ export default function Header() {
             <div className={styles.nav}>
                 <div className={styles.cloudnav}>
                     <Uploud />
-                    <Delete/>
                     <CreatFolder />
                 </div>
 
