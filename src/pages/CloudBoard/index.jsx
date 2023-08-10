@@ -32,7 +32,7 @@ function CloudBoard() {
     return (
         <div className={`center ${styles.bord}`} >
             {context.activeFolder.length > 0 ? context.activeFolder.map((item, index) => {
-                return <div key={index}> <button className={`btu ${styles.card}`} name={item} onClick={(e) => buttenOpenFolder(e)}>{item.includes(".")?<BsFileEarmark/>:<BsFolder2/>} {item}</button></div>
+                return <div key={index}> <button className={`btu ${styles.card}`} name={item} onClick={(e) => buttenOpenFolder(e)}>{item.includes(".")?<BsFileEarmark/>:<BsFolder2/>} {item.includes(".")?item.slice(13):item}</button></div>
             }) : null}
         </div>
     )
