@@ -33,7 +33,6 @@ function CloudBoard() {
     }
     let navItemArray = {}
     function setnavitemfun(e) {
-
         navItemArray =
         {
             name: e.target.name,
@@ -44,15 +43,17 @@ function CloudBoard() {
 
     return (
         <div className={`center ${styles.bord}`} >
+            <ul>
             {context.activeFolder.length > 0 ? context.activeFolder.map((item, index) => {
-                return <ul key={index}>
-                    <li name={item} onClick={(e) => buttenopenfolder(e)}> {item}</li>
+                return<li name={item} onClick={(e) => buttenOpenFolder(e)}>{item}
                     <button name={item} onClick={(e) => setnavitemfun(e)}>⁝</button>
+                    </li>
                     {/* {context.navItem.name=={item} && <NavItem />} */}
                     {<NavItem />}
-                </ul>
+                // </ul>
                 //return <div key={index}> <button className={`btu ${styles.card}`} name={item} onClick={(e) => buttenOpenFolder(e)}>{item.includes(".")?<BsFileEarmark/>:<BsFolder2/>} {item}</button></div>
             }) : null}
+            </ul>
 
         </div>
 

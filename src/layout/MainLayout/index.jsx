@@ -9,9 +9,6 @@ export default function MainLayout() {
         <>
             <Header />
             <Content />
-            <div>
-                
-            </div>
         </>
     )
 }
