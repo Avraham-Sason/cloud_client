@@ -1,9 +1,15 @@
 import React, { useContext, useEffect } from 'react'
 import { DataContext } from '../../context'
 import apiCalls from '../../functions/apiCalls'
+<<<<<<< HEAD
 import NavItem from '../../components/NavItem'
 import Delete from '../../components/Delete'
 import Down from '../../components/Down'
+=======
+import styles from './style.module.css'
+import {BsFolder2,BsFileEarmark} from "react-icons/bs"
+
+>>>>>>> 455d1fcac7fbe7a2ab978411695c9f0a701c068b
 //let nowUrl
 function CloudBoard() {
     const context = useContext(DataContext)
@@ -21,11 +27,11 @@ function CloudBoard() {
         }
     }
 
-    const buttenopenfolder = async (e) => {
+    const buttenOpenFolder = async (e) => {
         let foldername = "/" + e.target.name
         context.setActiveUrl(prev => {
             const newdir = [...prev, foldername]
-            return newdir
+            return e.target.name.includes(".")?prev : newdir
         })
     }
     let navItemArray = {}
@@ -40,14 +46,9 @@ function CloudBoard() {
     }
 
     return (
-        <div>
+        <div className={`center ${styles.bord}`} >
             {context.activeFolder.length > 0 ? context.activeFolder.map((item, index) => {
-                return <ul key={index}>
-                    <li name={item} onClick={(e) => buttenopenfolder(e)}> {item}</li>
-                    <button name={item} onClick={(e) => setnavitemfun(e)}>⁝</button>
-                    {/* {context.navItem.name=={item} && <NavItem />} */}
-                    {<NavItem />}
-                </ul>
+                return <div key={index}> <button className={`btu ${styles.card}`} name={item} onClick={(e) => buttenOpenFolder(e)}>{item.includes(".")?<BsFileEarmark/>:<BsFolder2/>} {item}</button></div>
             }) : null}
 
         </div>

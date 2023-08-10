@@ -11,15 +11,12 @@ export default function Header() {
             <div className={`center ${styles.title}`}>
                 <div>☁️SagiDrive</div>
             </div>
-
-            <div className={styles.nav}>
-                <div className={styles.cloudnav}>
-                    <Uploud />
-                    <CreatFolder />
-                </div>
-
+            <nav className={`center ${styles.nav}`}>
+                <Uploud />
+                <CreatFolder />
+                <Delete/>
                 <Undu />
-            </div>
+            </nav>
         </div>
     )
 }

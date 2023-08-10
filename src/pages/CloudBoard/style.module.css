@@ -1,0 +1,11 @@
+.bord{
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: start !important;
+
+}
+.card{
+    padding: 10px !important;
+    border-radius: 5px !important;
+}

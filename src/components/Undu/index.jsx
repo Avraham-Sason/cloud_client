@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 import { DataContext } from '../../context'
+import {BsFileEarmarkPlusFill,BsArrow90DegUp} from "react-icons/bs"
+import {TbRefresh} from "react-icons/tb"
 
 export default function Undu() {
     const context = useContext(DataContext)
@@ -13,7 +15,7 @@ export default function Undu() {
     //context.setActiveUrl(prev=>console.log("prev",prev))
     return (
         <div>
-            <button onClick={setundu}>undu</button>
+            <button onClick={setundu}><BsArrow90DegUp/></button>
         </div>
     )
 }
