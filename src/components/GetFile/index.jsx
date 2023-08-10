@@ -5,7 +5,7 @@ import apiCalls from '../../functions/apiCalls';
 import axios from 'axios';
 import styles from './style.module.css';
 import Down from '../Down';
-import DocViewer from 'react-doc-viewer';
+
 
 
 

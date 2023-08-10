@@ -6,7 +6,7 @@ export default function Content() {
     return (
         <div>
             <GetFile />
-            <CloudBoard/>
+            <CloudBoard />
         </div>
     )
 }
