@@ -7,6 +7,7 @@ import Down from '../../components/Down'
 import styles from './style.module.css'
 import { BsFolder2, BsFileEarmark } from "react-icons/bs"
 
+
 //let nowUrl
 function CloudBoard() {
     const context = useContext(DataContext)
@@ -43,17 +44,14 @@ function CloudBoard() {
 
     return (
         <div className={`center ${styles.bord}`} >
-            <ul>
             {context.activeFolder.length > 0 ? context.activeFolder.map((item, index) => {
                 return <li name={item} onClick={(e) => buttenOpenFolder(e)}> {item}
                     <button name={item} onClick={(e) => setnavitemfun(e)}>⁝</button>
+                    {context.navItem.name==item && <NavItem />}
                     </li>
-                    {/* {context.navItem.name=={item} && <NavItem />} */}
-                    {<NavItem />}
 
                 //return <div key={index}> <button className={`btu ${styles.card}`} name={item} onClick={(e) => buttenOpenFolder(e)}>{item.includes(".")?<BsFileEarmark/>:<BsFolder2/>} {item}</button></div>
             }) : null}
-            </ul>
 
         </div>
 
