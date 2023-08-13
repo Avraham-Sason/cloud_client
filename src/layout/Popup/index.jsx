@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { DataContext}  from '../../context'
+import { DataContext } from '../../context'
 import styles from './style.module.css'
 
 export default function Popup() {
@@ -18,11 +18,13 @@ export default function Popup() {
                 <div className={styles.popup} onClick={e => e.stopPropagation()} >
 
                     <div className={styles.popheader}>
-                        <div className={styles.x} onClick={(e) => exit(e)}>❌</div>
+                        <div className={styles.x} onClick={(e) => exit(e)}>
+                            ❌
+                        </div>
                     </div>
-                    
+
                     {context.popup}
-                    
+
                 </div>
 
             </div>

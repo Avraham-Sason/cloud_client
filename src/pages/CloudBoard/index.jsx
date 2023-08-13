@@ -11,15 +11,11 @@ import OpenFile from '../../components/OpenFile'
 //let nowUrl
 function CloudBoard() {
     const context = useContext(DataContext)
-
-    // const [click, setClick] = useState("ok")
-    const [name, setName] = useState("")//1 get the name clicked
-    // useEffect(() => { name && click && buttenOpenFolder() }, [click])//2 ask if folder or file 
-    useEffect(() => { boardrender() }, [context.activeUrl])//4 render board if folder
+    const [name, setName] = useState("")//1 get the name item clicked 
+    useEffect(() => { boardrender() }, [context.activeUrl])//render board if folder
 
     const buttenOpenFolder = async (item, e) => {
-        console.log("test", item, e.target.innerText, name);
-
+        
         e.stopPropagation()
 
         if (item.includes(".")) {//check if it is a folder
@@ -46,6 +42,7 @@ function CloudBoard() {
         }
     }
 
+   
     return (
         <div className={`center ${styles.bord}`} >
 
@@ -53,7 +50,7 @@ function CloudBoard() {
 
                 context.activeFolder.length > 0 ? context.activeFolder.map((item, index) => {
 
-                    return <div className={styles.item} key={index} name={item} onClick={(e) => { buttenOpenFolder(item, e); setName(item) }}>
+                    return <div className={styles.item} key={index} name={item} onClick={(e) => { buttenOpenFolder(item, e)}}>
                         {item}
                         {<NavItem item={item} arr={[<Delete />, <Down path={item} />]} />}
                     </div>
