@@ -8,6 +8,7 @@ export default function Popup() {
 
     function exit() {
         context.setPopup(null)
+        context.setDisplay(!context.display)
     }
 
     return (

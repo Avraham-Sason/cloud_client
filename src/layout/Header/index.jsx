@@ -4,6 +4,7 @@ import CreatFolder from '../../components/CreatFolder'
 import styles from './style.module.css'
 import Undu from '../../components/Undu'
 import Delete from '../../components/Delete'
+import OpenFile from '../../components/OpenFile'
 
 export default function Header() {
     return (
@@ -16,6 +17,7 @@ export default function Header() {
                 <CreatFolder />
                 <Delete/>
                 <Undu />
+                <OpenFile/>
             </nav>
         </div>
     )
