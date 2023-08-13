@@ -3,7 +3,7 @@ import { DataContext } from '../../context'
 import styles from './style.module.css'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 
-export default function navItem({ item, arr, isDown }) {
+export default function navItem({ item, arr}) {
   const [display, setDisplay] = useState(false)
   const context = useContext(DataContext)//={components to render}
 
@@ -21,7 +21,8 @@ export default function navItem({ item, arr, isDown }) {
     <>
       {/* <button name={item} onClick={(e) => setnavitemfun(e)}><BsThreeDotsVertical/></button> */}
       <button onClick={(e) => setnavitemfun(e)}>⁝</button>
-      {display && context.navItem.name == item ? <ul>
+      {display && context.navItem.name == item ?
+       <ul>
         {context.navItem.array.length > 0 && context.navItem.array.map((val, i) => {
           return <li className={styles.nav} key={i}>{val}</li>
         })}

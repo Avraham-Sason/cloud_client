@@ -14,12 +14,12 @@ export default function Down({ path }) {// requires-fileUrl- by props/context ?
             .then(res => {
                 console.log("down", url, path, context.navItem.name, res);
                 e.target.href = res.fileUrl
-                e.target.download = context.navItem.name
+               return e.target.download = path//context.navItem.name
             })
     }
     return (
         <>
-            <a onClick={(e) => downloadFile(e)} >download⏬</a>
+            <a download = {path} onClick={(e) => downloadFile(e)} >download⏬</a>
         </>
 
     )

@@ -2,9 +2,7 @@ import React from 'react'
 import { useEffect, useContext, useState } from "react";
 import { DataContext } from '../../context/index';
 import apiCalls from '../../functions/apiCalls';
-import axios from 'axios';
 import styles from './style.module.css';
-import Down from '../Down';
 import getFile from '../../functions/getFile';
 
 
